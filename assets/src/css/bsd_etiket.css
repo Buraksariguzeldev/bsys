@@ -1,0 +1,50 @@
+h2 , h5 {
+ margin-top: 20px;
+ margin-bottom: 10px;
+ border-bottom: 2px solid #3498db;
+ padding-bottom: 5px;
+ color: white;
+ font-size: 20px;
+ text-align: center;
+}
+
+hr {
+margin: 20px 0;
+border: 0;
+border-top: 1px solid yellow;
+}
+
+div {
+flex: 1;
+/* İçerik div'inin diğer içeriklerin kalan alanını kaplamasını sağlar */
+padding: 10px;
+overflow-y: auto;
+/* İçerik fazla olduğunda kaydırma çubuğu görünsün */
+}
+
+code {
+color: orange;
+background-color: black;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+p, ul li, ol li {
+background-color: grey;
+border: 1px solid orange;
+padding: 10px 15px;
+margin-bottom: 10px;
+border-radius: 25px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer ul li {
+border: 5px solid #fff;
+border-radius: 20px;
+padding: 10px;
+margin-bottom: 10px;
+}

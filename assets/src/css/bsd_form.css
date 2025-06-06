@@ -1,0 +1,153 @@
+form {
+max-width: 500px;
+margin: 0 auto;
+padding: 20px;
+border-radius: 5px;
+}
+
+.form-group {
+  color: orange;
+}
+
+label {
+display: block;
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+width: 100%;
+padding: 10px;
+margin: 5px 0;
+border: 3px ridge orange;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+
+
+.toggle-password {
+    position: relative;
+    width: max-content;
+    color: red;
+}
+
+.toggle-password input {
+    padding-right: 30px; /* Icon genişliği kadar boşluk bırakın */
+}
+
+.password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px; /* Iconun sağa hizalanması için boşluk bırakın */
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1; /* Iconun input'un üzerinde olması için */
+}
+
+.checkbox-label input[type="checkbox"]:checked + span::after {
+border-left: 4px solid red;
+border-top: 4px solid #333;
+transform: rotate(-45deg);
+}
+
+.checkbox-label input[type="checkbox"] {
+display: none;
+}
+
+.checkbox-label span::after {
+content: '';
+position: absolute;
+top: 4px;
+left: 4px;
+width: 8px;
+height: 8px;
+border-left: 2px solid transparent;
+border-right: 2px solid transparent;
+border-top: 2px solid transparent;
+border-bottom: 2px solid transparent;
+transition: all 0.2s ease-in-out;
+}
+
+.input-group {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 0.5rem; /* İçeride biraz boşluk bırakır */
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: 5px;
+   padding: 5px;
+   color: green;
+}
+
+#eye-icon {
+    font-size: 1.25rem; /* Göz ikonunun boyutunu ayarlar */
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+
+.checkbox-label:hover {
+text-decoration: underline;
+}
+
+
+.checkbox-label span {
+position: relative;
+display: inline-block;
+width: 16px;
+height: 16px;
+border: 1px solid #ccc;
+background-color: #fff;
+cursor: pointer;
+}
+
+#kullanici_durumu {
+  color: red;
+}
+
+#sifre_durumu {
+  color: orange;
+}
+
+#eposta_durumu {
+  color: yellow;
+}
+
+input[disabled] {
+    color: orange; /* Yazı rengini değiştirir */
+    background-color: transparent; /* Arka planı şeffaf yapar */
+    border: none; /* Kenarlığı kaldırır */
+    font-weight: bold; /* Yazıyı kalın yapar */
+    cursor: not-allowed; /* Fareyi üzerine getirdiğinde 'engelli' imleci gösterir */
+}
+
+.input-group {
+    position: relative;
+}
+
+#sifre_reg {
+    padding-right: 40px; /* Göz ikonu için sağda alan bırakıyoruz */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;  /* Butonu sağa hizala */
+    top: 50%;
+    transform: translateY(-50%);  /* Yükseklik olarak ortala */
+    background: none;  /* Arkaplanı kaldır */
+    border: none;  /* Kenarlıkları kaldır */
+    cursor: pointer;  /* İmleci işaretçi yap */
+}
+
+#eye-icon {
+    font-size: 20px;  /* İkon boyutu */
+}
