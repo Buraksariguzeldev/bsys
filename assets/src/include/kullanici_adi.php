@@ -1,5 +1,7 @@
   <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // Kullanıcı girişi kontrolü
 if (isset($_SESSION["kullanici_adi"])) {
     $kullanici_adi = htmlspecialchars($_SESSION["kullanici_adi"]);
