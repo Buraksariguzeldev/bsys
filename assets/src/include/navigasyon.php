@@ -60,13 +60,8 @@ error_reporting(E_ALL);
   $show_menu = !in_array($current_page, ['giris', 'kayit', 'sifre_sifirlama']);
 
   // Admin menüsü
-  if (isset($kullanici_adi) && $kullanici_adi === "buraksariguzeldev") {
-      $menu_items['Admin'] = [
-          'url' => 'auth/adminislemleri/adminpanel.php',
-          'icon' => 'fas fa-user-shield',
-          'text' => 'Admin panel'
-      ];
-  }
+  
+ 
 
   // Genel menü
   if (isset($kullanici_adi) && $kullanici_adi) {
@@ -81,23 +76,8 @@ error_reporting(E_ALL);
           ]
       ];
 
-      $menu_items['Karşılaştırma'] = [
-          'url' => '#', 'icon' => 'fas fa-balance-scale', 'text' => 'Karşılaştırma',
-          'submenu' => [
-              'bsdev' => ['url' => '../../../karsilastirma/bsdev.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdev'],
-              'bsdsoft' => ['url' => '../../../karsilastirma/bsdsoft.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdsoft']
-          ]
-      ];
 
-      $menu_items['Ftp'] = [
-          'url' => '#', 'icon' => 'fas fa-server', 'text' => 'FTP',
-          'submenu' => [
-              'bsdev' => ['url' => '../../../ftp/bsdevftp.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdev'],
-              'bsdsoft' => ['url' => '../../../ftp/bsdsoftftp.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdsoft'],
-              'ftp bilgi' => ['url' => '../../../ftp/ftpbilgi.php', 'icon' => 'fas fa-file-contract', 'text' => 'ftp bilgi'],
-              'senkronizasyon' => ['url' => '../../../ftp/bsdsoftsek.php', 'icon' => 'fas fa-file-contract', 'text' => 'senkronizasyon']
-          ]
-      ];
+     
   }
 
   // Ek menüler varsa ekle
