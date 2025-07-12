@@ -42,3 +42,5 @@
 [30-03-2025 11:37:54] [/MySQL/products_excel/winston.php?dosya=Fiyat_Listesi.xlsx] İkinci veritabanına bağlanıldı.
 [15-04-2025 05:15:57] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
 [15-04-2025 05:15:57] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İkinci veritabanına bağlanıldı.
+[26-06-2025 12:16:22] [/bsys/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İlk veritabanına bağlanıldı.
+[26-06-2025 12:34:13] [/bsys/MySQL/products_excel/winston.php?dosya=Fiyat_Listesi.xlsx] İlk veritabanına bağlanıldı.

@@ -1,14 +1,15 @@
-
-
 <?php
 ob_start();
 session_start();
 require '../../myproject/vendor/autoload.php'; // PhpSpreadsheet için
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/navigasyon.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/giriskontrol.php');
+include_once(__DIR__ . '/../../../bsys/assets/src/include/navigasyon.php');
+include_once(__DIR__ . '/../../../bsys/assets/src/include/giriskontrol.php');
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti1.php');
+
+// ...existing code...
+include_once(__DIR__ . '/../../../bsys/assets/src/config/vt_baglanti1.php');
+// ...existing code...
 
 ?>
 

@@ -2,7 +2,6 @@
 session_start();
 include("styles.php");
 include("header.php");
-include("linkcss.php");
 include 'kullanici_adi.php';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -35,16 +34,20 @@ error_reporting(E_ALL);
 
 <div id="bsd-mySidebar" class="bsd-sidebar">
   <span class="bsd-closebtn" onclick="closeNav()">&times;</span>
-  
+
   <img src="<?php echo site_url('img/bsys.png'); ?>" alt="Sidebar Logo" class="bsd-sidebar-logo">
-  
+
   <div class="bsd-datetime" id="bsd-datetime"></div>
-  
-  <?php if ($kullanici_adi): ?>
+
+  <?php if (isset($kullanici_adi) && $kullanici_adi): ?>
     <div class="bsd-welcome">Hoş geldiniz <span class="bsd-hys-kullanici-adi"><?php echo htmlspecialchars($kullanici_adi); ?></span></div>
   <?php endif; ?>
-  
+
   <?php
+  // Güvenlik ve fallback
+  if (!isset($menu_items) || !is_array($menu_items)) {
+      $menu_items = [];
+  }
 
   $current_page = isset($current_page) ? $current_page : 'ana_sayfa';
 
@@ -56,110 +59,81 @@ error_reporting(E_ALL);
 
   $show_menu = !in_array($current_page, ['giris', 'kayit', 'sifre_sifirlama']);
 
+  // Admin menüsü
+  if (isset($kullanici_adi) && $kullanici_adi === "buraksariguzeldev") {
+      $menu_items['Admin'] = [
+          'url' => 'auth/adminislemleri/adminpanel.php',
+          'icon' => 'fas fa-user-shield',
+          'text' => 'Admin panel'
+      ];
+  }
 
-//giris veya yapılmamış durum
-// if (!$kullanici_adi ||  $kullanici_adi)  { 
-//       $menu_items['#'] = ['url' => '../../../siteharitasi.php',
-//       'icon' => 'fas fa-sitemap', 'text' => '#'];
-//         $menu_items['#'] = ['url' => '../../../web/web.php',
-//       'icon' => 'fas fa-book', 'text' => '#'];
-// }
-// 
+  // Genel menü
+  if (isset($kullanici_adi) && $kullanici_adi) {
+      $menu_items['mySQL'] = [
+          'url' => '#', 'icon' => 'fas fa-database', 'text' => 'mySQL',
+          'submenu' => [
+              'hesap' => [
+                  'url' => '../../../MySQL/products_excel/dosya_excel.php',
+                  'icon' => 'fas fa-exchange-alt',
+                  'text' => 'Ürün aktarım'
+              ]
+          ]
+      ];
 
-// kullanici adi buraksariguzeldev ise
-if ($kullanici_adi === "buraksariguzeldev") {
-          $menu_items['Admin'] = ['url' =>
-          'auth/adminislemleri/adminpanel.php',
-      'icon' => 'fas fa-user-shield', 'text' => 'Admin panel'];
-        
-  
-}
+      $menu_items['Karşılaştırma'] = [
+          'url' => '#', 'icon' => 'fas fa-balance-scale', 'text' => 'Karşılaştırma',
+          'submenu' => [
+              'bsdev' => ['url' => '../../../karsilastirma/bsdev.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdev'],
+              'bsdsoft' => ['url' => '../../../karsilastirma/bsdsoft.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdsoft']
+          ]
+      ];
 
+      $menu_items['Ftp'] = [
+          'url' => '#', 'icon' => 'fas fa-server', 'text' => 'FTP',
+          'submenu' => [
+              'bsdev' => ['url' => '../../../ftp/bsdevftp.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdev'],
+              'bsdsoft' => ['url' => '../../../ftp/bsdsoftftp.php', 'icon' => 'fas fa-file-contract', 'text' => 'bsdsoft'],
+              'ftp bilgi' => ['url' => '../../../ftp/ftpbilgi.php', 'icon' => 'fas fa-file-contract', 'text' => 'ftp bilgi'],
+              'senkronizasyon' => ['url' => '../../../ftp/bsdsoftsek.php', 'icon' => 'fas fa-file-contract', 'text' => 'senkronizasyon']
+          ]
+      ];
+  }
 
-// Kullanıcı giriş yaptıysa
-if ($kullanici_adi) { 
-    
-    $menu_items['mySQL'] = [
-        'url' => '#', 'icon' => 'fas fa-database', 'text' => 'mySQL',
-        'submenu' => [
-            'hesap' => ['url' => '../../../MySQL/products_excel/dosya_excel.php', 'icon' =>
-            'fas fa-exchange-alt', 'text' => 'Urun aktarim'],
-
-
-        ]
-        
-    ];
-        $menu_items['Karsilastirma'] = [
-        'url' => '#', 'icon' => 'fas fa-balance-scale', 'text' => 'Karsilastirma',
-        'submenu' => [
-            'bsdev' => ['url' => '../../../karsilastirma/bsdev.php', 'icon' =>
-            'fas fa-file-contract', 'text' => 'bsdev'],
-            'bsdsoft' => ['url' => '../../../karsilastirma/bsdsoft.php', 'icon'
-            => 'fas fa-file-contract', 'text' => 'bsdsoft'],
-
-        ]
-];
-           $menu_items['Ftp'] = [
-        'url' => '#', 'icon' => 'fas fa-server', 'text' => 'ftp',
-        'submenu' => [
-            'bsdev' => ['url' => '../../../ftp/bsdevftp.php', 'icon' =>
-            'fas fa-file-contract', 'text' => 'bsdev'],
-            'bsdsoft' => ['url' => '../../../ftp/bsdsoftftp.php', 'icon'
-            => 'fas fa-file-contract', 'text' => 'bsdsoft'],
-
-        
-    'ftp bilgi' => ['url' => '../../../ftp/ftpbilgi.php', 'icon'
-            => 'fas fa-file-contract', 'text' => 'ftp bilgi'],
-                  'sekronizyon' => ['url' => '../../../ftp/bsdsoftsek.php', 'icon'
-            => 'fas fa-file-contract', 'text' => 'sekronizyon'],
-
-        ],
-
-            
-]; 
-    
-    
-    
-}
-
-
-if (isset($additional_menu_items) && is_array($additional_menu_items)) {
-    $menu_items = array_merge($menu_items, $additional_menu_items);
-}
-
-   if ($show_menu): ?>
-  <?php foreach ($menu_items as $key => $item): ?>
-    <div class="bsd-menu-item">
-      <a href="<?php echo site_url($item['url']); ?>" class="bsd-navlink1">
-        <span class="bsd-menu-icon"><i class="<?php echo $item['icon']; ?>"></i></span>
-        <?php echo $item['text']; ?>
-        <?php if (isset($item['submenu'])): ?>
-          <span class="bsd-submenu-toggle"><i class="fas fa-chevron-down"></i></span>
-        <?php endif; ?>
-      </a>
-      <?php if (isset($item['submenu'])): ?>
-        <div class="bsd-submenu">
-          <?php foreach ($item['submenu'] as $subitem): ?>
-            <a href="<?php echo site_url($subitem['url']); ?>" class="bsd-navlink1">
-              <span class="bsd-menu-icon"><i class="<?php echo $subitem['icon']; ?>"></i></span>
-              <?php echo $subitem['text']; ?>
-            </a>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
-    </div>
-  <?php endforeach; ?>
-<?php endif; 
+  // Ek menüler varsa ekle
+  if (isset($additional_menu_items) && is_array($additional_menu_items)) {
+      $menu_items = array_merge($menu_items, $additional_menu_items);
+  }
   ?>
+
+  <?php if ($show_menu): ?>
+    <?php foreach ($menu_items as $item): ?>
+      <div class="bsd-menu-item">
+        <a href="<?php echo site_url($item['url']); ?>" class="bsd-navlink1">
+          <span class="bsd-menu-icon"><i class="<?php echo $item['icon']; ?>"></i></span>
+          <?php echo $item['text']; ?>
+          <?php if (isset($item['submenu'])): ?>
+            <span class="bsd-submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+          <?php endif; ?>
+        </a>
+
+        <?php if (isset($item['submenu'])): ?>
+          <div class="bsd-submenu">
+            <?php foreach ($item['submenu'] as $subitem): ?>
+              <a href="<?php echo site_url($subitem['url']); ?>" class="bsd-navlink1">
+                <span class="bsd-menu-icon"><i class="<?php echo $subitem['icon']; ?>"></i></span>
+                <?php echo $subitem['text']; ?>
+              </a>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+    <?php endforeach; ?>
+  <?php endif; ?>
 </div>
 
 <div class="bsd-content">
   <!-- Sayfa içeriği buraya gelecek -->
 </div>
 
-
 <?php include("script.php"); ?>
-
-</body>
-</html>
-

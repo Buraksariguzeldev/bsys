@@ -1,13 +1,15 @@
 <?php
 ob_start();
 // navigasyon 
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/navigasyon.php');
+include_once($_SERVER['DOCUMENT_ROOT']  . '/assets/src/include/navigasyon.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti.php');
+
 
 ?>
 
 <?php
 
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti.php'); //MySQL bağlantısını sağlayan dosya
+include_once($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti.php'); //MySQL bağlantısını sağlayan dosya
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $kullanici_adi = $_POST['username'];

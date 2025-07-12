@@ -10,7 +10,7 @@ use PhpOffice\PhpSpreadsheet\Cell\DataType;
 ini_set('memory_limit', '1024M');
 ini_set('max_execution_time', 600);
 
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti1.php');
+include_once(__DIR__ . '/../bsys/assets/src/config/vt_baglanti1.php');
 
 try {
     $stmt = $vt->query("SELECT barcode, product_name, unit, sale_price, purchase_price FROM products");
@@ -70,5 +70,11 @@ try {
     exit;
 } catch (Exception $e) {
     die("Hata oluştu: " . $e->getMessage());
+}
+
+if (class_exists('ZipArchive')) {
+    echo "ZipArchive yüklü ve aktif!";
+} else {
+    echo "ZipArchive YOK!";
 }
 ?>

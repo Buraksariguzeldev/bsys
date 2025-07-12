@@ -1,6 +1,6 @@
 <?php
 
-include('assets/src/include/navigasyon.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/navigasyon.php');
 
 ?>
 
@@ -14,6 +14,9 @@ include('assets/src/include/navigasyon.php');
    <title>bsys </title>
 </head>
 <body>
+
+
+
 
 </body>
 </html>

@@ -12,3 +12,5 @@
 [20-03-2025 06:49:19] [/test.php] İlk veritabanına bağlanıldı.
 [20-03-2025 06:49:21] [/test.php?islem=disaaktar] İlk veritabanına bağlanıldı.
 [20-03-2025 08:03:27] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%284%29.xlsx] İlk veritabanına bağlanıldı.
+[25-06-2025 18:06:05] [/auth/giri%C5%9Fislemleri/girisyap.php] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [1049] Unknown database 'bsys'
+[25-06-2025 18:06:05] [/auth/giri%C5%9Fislemleri/girisyap.php] İkinci veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo for sql308.infinityfree.com failed: Bilinen b�yle bir ana bilgisayar yok. 
