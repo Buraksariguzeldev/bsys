@@ -1,74 +1,59 @@
+php
 <?php
-session_start();
-require 'myproject/vendor/autoload.php';
 
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
-use PhpOffice\PhpSpreadsheet\Cell\DataType;
+require 'vendor/autoload.php'; // Composer autoloader
 
-ini_set('memory_limit', '1024M');
-ini_set('max_execution_time', 600);
+use Aws\Textract\TextractClient;
+use Aws\Exception\AwsException;
 
-include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti1.php');
+// AWS yapılandırması (kimlik bilgileri ve bölge)
+$config = [
+    'version' => 'latest', // Veya belirli bir versiyon
+    'region' => 'your-aws-region', // Örneğin, 'us-east-1'
+    'credentials' => [
+        'key'    => 'AKIAQXPZDFIREJNGLJU7',
+        'secret' => 'OI90spEsx6l0csiW/simginYNvtlTYCl7vlmhzJP',
+    ],
+];
 
 try {
-    $stmt = $vt->query("SELECT barcode, product_name, unit, sale_price, purchase_price FROM products");
-    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Textract istemcisini oluşturma
+    $textractClient = new TextractClient($config);
 
-    $spreadsheet = new Spreadsheet();
-    $sheet = $spreadsheet->getActiveSheet();
+    // Görsel dosyasının yolu
+    $imagePath = 'uploads/fiyat_listesi.jpg'; // Kullanıcının yüklediği görsel
 
-    // Başlık
-    $sheet->setCellValue('A1', 'Ürünler Dışa Aktar - BenimPOS');
-    $sheet->mergeCells('A1:P1');
-    $sheet->getStyle('A1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-    $sheet->getStyle('A1')->getFont()->setBold(true)->setSize(14);
+    // Görsel dosyasını okuma
+    $image = file_get_contents($imagePath);
 
-    // Sütun başlıkları
-    $headers = [
-        "Ürün barkodu", "Ürün adı", "Stok", "Birim", "Fiyat 1", "KDV", "Alış Fiyatı", 
-        "Üst Ürün grubu", "Ürün grubu", "Fiyat 2", "Stok kodu", "Ürün detayı", 
-        "Hızlı Liste Grubu", "Hızlı Liste Sırası", "Kritik Stok", "Menşei"
-    ];
-    $sheet->fromArray($headers, NULL, 'A2');
+    // AnalyzeDocument API çağrısı (metin ve formları çıkarmak için)
+    $result = $textractClient->analyzeDocument([
+        'Document' => [
+            'Bytes' => $image,
+        ],
+        'FeatureTypes' => ['FORMS', 'TABLES'], // Metin, form ve tablo çıkarma
+    ]);
 
-    // Ürün verileri
-    $row = 3;
-    foreach ($products as $product) {
-        $salePrice = ($product['sale_price'] > 0) ? number_format($product['sale_price'], 2, ',', '') : ""; 
-        $purchasePrice = ($product['purchase_price'] > 0) ? number_format($product['purchase_price'], 2, ',', '') : ""; 
+    // API yanıtını işleme
+    $blocks = $result->get('Blocks');
 
-        $sheet->setCellValueExplicit('A' . $row, $product['barcode'], DataType::TYPE_STRING);
-        $sheet->setCellValue('B' . $row, $product['product_name']);
-        $sheet->setCellValue('C' . $row, 0);
-        $sheet->setCellValue('D' . $row, $product['unit']);
-        $sheet->setCellValue('E' . $row, $salePrice);
-        $sheet->setCellValue('F' . $row, 0);
-        $sheet->setCellValue('G' . $row, $purchasePrice);
-        $sheet->setCellValue('H' . $row, "");
-        $sheet->setCellValue('I' . $row, "");
-        $sheet->setCellValue('J' . $row, 0);
-        $sheet->setCellValue('K' . $row, "");
-        $sheet->setCellValue('L' . $row, "");
-        $sheet->setCellValue('M' . $row, "");
-        $sheet->setCellValue('N' . $row, 0);
-        $sheet->setCellValue('O' . $row, 0);
-        $sheet->setCellValue('P' . $row, "");
+    // Burada $blocks dizisindeki verileri işleyerek ürün adları ve fiyatları çıkaracaksınız.
+    // Textract yanıtı biraz detaylıdır ve blokları dolaşarak istediğiniz bilgiyi bulmanız gerekir.
+    // Genellikle 'LINE' tipi bloklar metin satırlarını temsil eder.
+    // 'KEY_VALUE_SET' ve 'TABLE' blokları ise yapılandırılmış verileri içerir.
 
-        $row++;
+    // Örnek: Sadece 'LINE' tipi blokları yazdırma
+    foreach ($blocks as $block) {
+        if ($block['BlockType'] === 'LINE') {
+            echo $block['Text'] . "\n";
+        }
     }
 
-    // Dosya çıktısı
-    $fileName = "urunler_disa_aktar.xlsx";
-    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment; filename="' . $fileName . '"');
-    header('Cache-Control: max-age=0');
-
-    $writer = new Xlsx($spreadsheet);
-    $writer->save('php://output');
-    exit;
-} catch (Exception $e) {
-    die("Hata oluştu: " . $e->getMessage());
+} catch (AwsException $e) {
+    // Hata yakalama
+    echo 'AWS Textract hatası: ' . $e->getMessage();
+    echo 'AWS İstek Kimliği: ' . $e->getAwsRequestId();
+    echo 'AWS Hata Kodu: ' . $e->getAwsErrorCode();
 }
+
 ?>
