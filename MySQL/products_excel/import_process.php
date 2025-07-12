@@ -2,17 +2,16 @@
 ob_start();
 session_start();
 require '../../myproject/vendor/autoload.php'; // PhpSpreadsheet için
-include_once(__DIR__ . '/../../../bsys/assets/src/include/navigasyon.php');
-include_once(__DIR__ . '/../../../bsys/assets/src/include/giriskontrol.php');
+include_once($_SERVER['DOCUMENT_ROOT']  . '/assets/src/include/navigasyon.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/bsys/assets/src/include/giriskontrol.php');
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // ...existing code...
-include_once(__DIR__ . '/../../../bsys/assets/src/config/vt_baglanti1.php');
+include_once($_SERVER['DOCUMENT_ROOT']  . '/assets/src/config/vt_baglanti1.php');
 // ...existing code...
 
 ?>
-
 
 <?php
 $islem = isset($_GET['islem']) ? $_GET['islem'] : (isset($_POST['islem']) ?
@@ -28,7 +27,6 @@ if ($islem === 'ice_aktar') {
 ?>
 
 <h3><?php echo $islemMetni; ?></h3>
-
 
 <?php
 try {
