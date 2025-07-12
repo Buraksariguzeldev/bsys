@@ -2,7 +2,6 @@
 
 require '../../myproject/vendor/autoload.php'; // PhpSpreadsheet kütüphanesi için
 
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 if ($_FILES['excelDosya']['error'] == UPLOAD_ERR_OK) {
@@ -15,10 +14,10 @@ if ($_FILES['excelDosya']['error'] == UPLOAD_ERR_OK) {
     $spreadsheet = IOFactory::load($yeniDosya);
     $worksheet = $spreadsheet->getActiveSheet();
     
-    // A1 hücresindeki değeri al
-    $ilkHucre = strtoupper(trim($worksheet->getCell('A1')->getValue()));
+    // A1 yerine A2 hücresindeki değeri al (ilk satırı atla)
+    $ilkHucre = strtoupper(trim($worksheet->getCell('A2')->getValue()));
     
-    // A1'e göre ilgili dosyaya yönlendir
+    // A2'ye göre ilgili dosyaya yönlendir
     if (stripos($ilkHucre, 'WINSTON') !== false) {
         header("Location: winston.php?dosya=" . urlencode($_FILES['excelDosya']['name']));
         exit;
@@ -37,6 +36,3 @@ if ($_FILES['excelDosya']['error'] == UPLOAD_ERR_OK) {
 } else {
     echo "Dosya yüklenirken hata oluştu.";
 }
-
-?>
-
