@@ -1,0 +1,14 @@
+[09-02-2025 19:15:37] [/auth/giri%C5%9Fislemleri/girisyap.php] İlk veritabanına bağlanıldı.
+[10-02-2025 02:21:36] [/auth/adminislemleri/adminpanel.php] İlk veritabanına bağlanıldı.
+[10-02-2025 02:21:39] [/auth/adminislemleri/adminpanel.php?status=pending] İlk veritabanına bağlanıldı.
+[10-02-2025 02:21:39] [/auth/adminislemleri/adminpanel.php?status=approved] İlk veritabanına bağlanıldı.
+[10-02-2025 02:21:44] [/auth/adminislemleri/adminpanel.php?status=rejected] İlk veritabanına bağlanıldı.
+[10-02-2025 02:35:46] [/auth/kayitislemleri/kayitol.php] İlk veritabanına bağlanıldı.
+[09-02-2025 20:51:57] [/auth/giri%C5%9Fislemleri/girisyap.php] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[09-02-2025 20:51:57] [/auth/giri%C5%9Fislemleri/girisyap.php] İkinci veritabanına bağlanıldı.
+[14-02-2025 23:35:24] [/auth/adminislemleri/approve_or_reject.php] İlk veritabanına bağlanıldı.
+[15-02-2025 15:46:56] [//auth/adminislemleri/approve_or_reject.php] İlk veritabanına bağlanıldı.
+[16-02-2025 11:09:10] [/deneme1.php] İlk veritabanına bağlanıldı.
+[20-03-2025 06:49:19] [/test.php] İlk veritabanına bağlanıldı.
+[20-03-2025 06:49:21] [/test.php?islem=disaaktar] İlk veritabanına bağlanıldı.
+[20-03-2025 08:03:27] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%284%29.xlsx] İlk veritabanına bağlanıldı.

@@ -1,0 +1,88 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 3px solid white;
+    padding: 8px;
+}
+
+th {
+    background-color: black ;
+    color:white;
+}
+
+.current-time, .current-date {
+    font-weight: bold;
+    color: grey;
+}
+
+.file-icon {
+    margin-right: 5px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: orange;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.file-name {
+    color:#281F9F ;
+}
+
+.mod-date, .mod-time {
+    color:#281F9F ;
+}
+
+.time-difference {
+    color: #8B4513;
+}
+
+.filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-container select, .filter-container input {
+    margin-right: 10px;
+}
+
+.today-modifications {
+    font-weight: bold;
+    color:#281F9F;
+}
+
+#modifications-count {
+    color: orange;
+    font-size: 1.2em;
+}
+
+.filter-button {
+    background-color: green;
+    color: #281F9F;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.filter-button:hover {
+    background-color: var(--hover-color);
+}
+
+.extension-count {
+    font-size: 0.9em;
+    color: darkred;
+}

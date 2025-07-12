@@ -1,0 +1,43 @@
+.button {
+display: inline-block;
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+margin-top: 10px;
+text-decoration: none;
+}
+
+.button:hover {
+background-color: #45a049;
+}
+
+.bsd-btn1 {
+color: #FFD700;
+width: 100%;
+/* Genişliği form elemanlarına uyacak şekilde ayarlandı */
+height: 40px;
+background-color: grey;
+border: 1px solid blue;
+border-radius: 10px;
+padding: 10px;
+font-size: 16px;
+margin: 5px;
+}
+
+
+button {
+   
+  color: #FFD700;
+width: 100%;
+/* Genişliği form elemanlarına uyacak şekilde ayarlandı */
+height: 40px;
+background-color: grey;
+border: 1px solid blue;
+border-radius: 10px;
+padding: 10px;
+font-size: 16px;
+margin: 5px; 
+   
+   
+}

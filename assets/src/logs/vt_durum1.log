@@ -1,0 +1,44 @@
+[10-02-2025 01:44:26] [/MySQL/products_excel/import_excel.php] İlk veritabanına bağlanıldı.
+[10-02-2025 01:51:03] [/MySQL/products_excel/import_process.php] İlk veritabanına bağlanıldı.
+[09-02-2025 20:57:00] [/MySQL/products_excel/import_excel.php] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[09-02-2025 20:57:00] [/MySQL/products_excel/import_excel.php] İkinci veritabanına bağlanıldı.
+[13-02-2025 07:42:08] [/MySQL/products_excel/import_process.php] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[13-02-2025 07:42:08] [/MySQL/products_excel/import_process.php] İkinci veritabanına bağlanıldı.
+[20-03-2025 05:25:01] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%284%29.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 05:51:34] [/MySQL/products_excel/parliament.php?dosya=Fiyat_Listesi_2.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 05:59:52] [/MySQL/products_excel/kent.php?dosya=Fiyat_Listesi_Birlestirilmis.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 01:09:33] [/MySQL/products_excel/parliament.php?dosya=Fiyat_Listesi_2.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[20-03-2025 01:09:33] [/MySQL/products_excel/parliament.php?dosya=Fiyat_Listesi_2.xlsx] İkinci veritabanına bağlanıldı.
+[20-03-2025 01:10:18] [/MySQL/products_excel/winston.php?dosya=fiyat_listesi+%283%29.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[20-03-2025 01:10:18] [/MySQL/products_excel/winston.php?dosya=fiyat_listesi+%283%29.xlsx] İkinci veritabanına bağlanıldı.
+[20-03-2025 01:10:48] [/MySQL/products_excel/kent.php?dosya=Fiyat_Listesi_Birlestirilmis.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[20-03-2025 01:10:48] [/MySQL/products_excel/kent.php?dosya=Fiyat_Listesi_Birlestirilmis.xlsx] İkinci veritabanına bağlanıldı.
+[20-03-2025 01:11:12] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%284%29.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[20-03-2025 01:11:12] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%284%29.xlsx] İkinci veritabanına bağlanıldı.
+[20-03-2025 06:51:26] [/test.php?islem=disaaktar] İlk veritabanına bağlanıldı.
+[20-03-2025 07:13:40] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 07:31:21] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%282%29.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 08:19:01] [/MySQL/products_excel/winston.php?dosya=fiyat_listesi+%283%29.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 08:27:48] [/MySQL/products_excel/import_process.php?dosya=guncellenmis_fiyat_listesi+%287%29.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 09:44:56] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%281%29.xlsx] İlk veritabanına bağlanıldı.
+[20-03-2025 14:09:30] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 13:23:22] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%281%29.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 08:30:38] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%281%29.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[21-03-2025 08:30:38] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%281%29.xlsx] İkinci veritabanına bağlanıldı.
+[21-03-2025 08:48:22] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%282%29.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[21-03-2025 08:48:22] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%282%29.xlsx] İkinci veritabanına bağlanıldı.
+[21-03-2025 14:46:33] [/MySQL/products_excel/import_process.php?dosya=guncellenmis_fiyat_listesi+%285%29.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 15:25:21] [/excel/urunlistesiexcel.php] İlk veritabanına bağlanıldı.
+[21-03-2025 15:29:51] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%283%29.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 15:33:27] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS+%282%29.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 21:57:23] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar+%285%29.xlsx] İlk veritabanına bağlanıldı.
+[21-03-2025 18:08:19] [/MySQL/products_excel/import_process.php?dosya=guncellenmis_fiyat_listesi.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[21-03-2025 18:08:19] [/MySQL/products_excel/import_process.php?dosya=guncellenmis_fiyat_listesi.xlsx] İkinci veritabanına bağlanıldı.
+[21-03-2025 18:24:15] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[21-03-2025 18:24:15] [/MySQL/products_excel/import_process.php?dosya=urunler_disa_aktar.xlsx] İkinci veritabanına bağlanıldı.
+[30-03-2025 11:33:18] [/excel/urunlistesiexcel.php] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[30-03-2025 11:33:18] [/excel/urunlistesiexcel.php] İkinci veritabanına bağlanıldı.
+[30-03-2025 11:37:54] [/MySQL/products_excel/winston.php?dosya=Fiyat_Listesi.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[30-03-2025 11:37:54] [/MySQL/products_excel/winston.php?dosya=Fiyat_Listesi.xlsx] İkinci veritabanına bağlanıldı.
+[15-04-2025 05:15:57] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İlk veritabanına bağlanırken hata oluştu: SQLSTATE[HY000] [2002] No such file or directory
+[15-04-2025 05:15:57] [/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İkinci veritabanına bağlanıldı.
