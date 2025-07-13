@@ -46,23 +46,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Yap</title>
+
+    <!-- Bootstrap CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    <h3>Giriş Yap</h3>
-    <form method="POST">
-        <label for="username">Kullanıcı Adı:</label>
-        <input type="text" name="username" required><br>
+ <div class="container mt-5">
+ <div class="row justify-content-center">
+ <div class="col-md-6">
+ <div class="card shadow-sm">
+ <div class="card-header bg-primary text-white text-center">
+     <h3><i class="bi-person-circle me-2"></i>Giriş Yap</h3>
+ </div>
+ <div class="card-body">
+ <form method="POST">
+ <div class="mb-3">
+     <label for="username" class="form-label">
+         <i class="bi-person-fill me-1"></i>Kullanıcı Adı:
+     </label>
+     <input type="text" class="form-control" id="username" name="username" required>
+ </div>
+ <div class="mb-3">
+     <label for="password" class="form-label">
+         <i class="bi-lock-fill me-1"></i>Şifre:
+     </label>
+     <input type="password" class="form-control" id="password" name="password" required>
+ </div>
+ <button type="submit" class="btn btn-primary w-100">
+     <i class="bi-box-arrow-in-right me-2"></i>Giriş Yap
+ </button>
+ </form>
+ </div>
+ <div class="card-footer text-center">
+     <i class="bi-question-circle me-1"></i>
+     <a href="../kayitislemleri/kayitol.php">Henüz kayıt olmadınız mı?</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <label for="password">Şifre:</label>
-        <input type="password" name="password" required><br>
-
-        <button type="submit">Giriş Yap</button>
-    </form>
-<a href="../kayitislemleri/kayitol.php">henüz kayit olmadinizmi</a>
-    <?php
-    if (isset($error_message)) {
-        echo "<p style='color:red;'>$error_message</p>";
-    }
-    ?>
+ <?php
+ if (isset($error_message)) {
+     echo "<p class='text-danger mt-3 text-center'><i class='bi-exclamation-circle me-1'></i>$error_message</p>";
+ }
+ ?>
 </body>
+
 </html>

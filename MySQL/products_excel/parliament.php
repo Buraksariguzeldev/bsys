@@ -3,14 +3,10 @@ require '../../myproject/vendor/autoload.php'; // PhpSpreadsheet kütüphanesi i
 
 include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/config/vt_baglanti1.php'); // Veritabanı bağlantısı
 
-
 // navigasyon 
 include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/navigasyon.php');
 // giriş kontrol
 include($_SERVER['DOCUMENT_ROOT'] . '/assets/src/include/giriskontrol.php');
-
-
-
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
@@ -32,7 +28,6 @@ if (!isset($vt)) {
 }
 
 // **Ürün isimleri ile ID’leri eşleştiren dizi**
-
 $urunler = [
     "PARLIAMENT Night Blue Pack / Long (Uzun)" => [88 ],
     "PARLIAMENT Aqua Blue Slims" => [0],
@@ -67,8 +62,7 @@ $worksheet = $spreadsheet->getActiveSheet();
 </head>
 <body class="container mt-4">
 
-<h2 class="text-center text-primary"><i class="bi bi-pencil-square"></i>
-Parliament Ürün Güncelleme</h2>
+<h2 class="text-center text-primary"><i class="bi bi-pencil-square"></i> Parliament Ürün Güncelleme</h2>
 
 <table class="table table-bordered table-striped">
     <thead class="table-dark">
@@ -84,18 +78,30 @@ Parliament Ürün Güncelleme</h2>
 
 <?php
 $sira = 1;
-foreach ($worksheet->getRowIterator() as $satir) {
-    $urun_adi = trim($worksheet->getCell('A' . $satir->getRowIndex())->getValue());
-    $yeni_fiyat = trim($worksheet->getCell('B' . $satir->getRowIndex())->getValue());
 
-    if (empty($urun_adi) || empty($yeni_fiyat)) {
+function temizleFiyat($fiyat) {
+    $fiyat = mb_strtolower(trim($fiyat));
+    $fiyat = str_replace(['₺', 'tl', ' '], '', $fiyat);
+    $fiyat = preg_replace('/[^\d.,]/u', '', $fiyat);
+    $fiyat = str_replace(',', '.', $fiyat);
+    return round((float)$fiyat, 2);
+}
+
+foreach ($worksheet->getRowIterator() as $satir) {
+    $rowIndex = $satir->getRowIndex();
+    $urun_adi = trim($worksheet->getCell('A' . $rowIndex)->getFormattedValue());
+    $yeni_fiyat_raw = $worksheet->getCell('B' . $rowIndex)->getFormattedValue();
+
+    if (empty($urun_adi) || empty($yeni_fiyat_raw)) {
         continue;
     }
+
+    $yeni_fiyat = temizleFiyat($yeni_fiyat_raw);
 
     if (isset($urunler[$urun_adi])) {
         $idler = (array) $urunler[$urun_adi]; 
         $durum = "<span class='badge bg-success'><i class='bi bi-check-circle'></i> Güncellendi</span>";
-        $eski_fiyat = "Bilinmiyor"; 
+        $eski_fiyat = "Bilinmiyor";
 
         foreach ($idler as $id) {
             if ($id == 0) {
@@ -107,15 +113,17 @@ foreach ($worksheet->getRowIterator() as $satir) {
                 $stmt = $vt->prepare("SELECT sale_price FROM products WHERE id = :id");
                 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
-                $eski_fiyat = $stmt->fetchColumn();
+                $eski_fiyat_db = $stmt->fetchColumn();
 
-                if ($eski_fiyat === false) {
+                if ($eski_fiyat_db === false) {
                     $eski_fiyat = "Bulunamadı";
                     $durum = "<span class='badge bg-secondary'><i class='bi bi-x-circle'></i> Ürün bulunamadı</span>";
                     continue;
                 }
 
-                if ($eski_fiyat == $yeni_fiyat) {
+                $eski_fiyat = temizleFiyat($eski_fiyat_db);
+
+                if (abs($eski_fiyat - $yeni_fiyat) < 0.01) {
                     $durum = "<span class='badge bg-warning text-dark'><i class='bi bi-arrow-repeat'></i> Değişiklik yok</span>";
                     continue;
                 }
@@ -137,11 +145,14 @@ foreach ($worksheet->getRowIterator() as $satir) {
         $eski_fiyat = "-";
     }
 
+    $eski_goster = (is_numeric($eski_fiyat)) ? "₺" . number_format($eski_fiyat, 2, ',', '.') : $eski_fiyat;
+    $yeni_goster = "₺" . number_format($yeni_fiyat, 2, ',', '.');
+
     echo "<tr>
             <td>$sira</td>
             <td>$urun_adi</td>
-            <td>₺$eski_fiyat</td>
-            <td>₺$yeni_fiyat</td>
+            <td>$eski_goster</td>
+            <td>$yeni_goster</td>
             <td>$durum</td>
           </tr>";
     $sira++;
@@ -154,3 +165,4 @@ foreach ($worksheet->getRowIterator() as $satir) {
 
 </body>
 </html>
+

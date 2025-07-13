@@ -45,3 +45,12 @@
 [26-06-2025 12:16:22] [/bsys/MySQL/products_excel/import_process.php?dosya=%C3%9Cr%C3%BCnler+D%C4%B1%C5%9Fa+Aktar+-++BenimPOS.xlsx] İlk veritabanına bağlanıldı.
 [26-06-2025 12:34:13] [/bsys/MySQL/products_excel/winston.php?dosya=Fiyat_Listesi.xlsx] İlk veritabanına bağlanıldı.
 [12-07-2025 21:21:22] [/MySQL/products_excel/winston.php?dosya=ocr_fiyat_listesi.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 10:46:51] [/MySQL/products_excel/import_process.php?dosya=guncellenmis_fiyat_listesi.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 11:01:36] [/MySQL/products_excel/winston.php?dosya=jte_1752353209077.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 11:03:32] [/MySQL/products_excel/winston.php?dosya=cs_1752043647331.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 11:08:05] [/MySQL/products_excel/parliament.php?dosya=jte_1752397544188.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 11:20:57] [/MySQL/products_excel/kent.php?dosya=jte_1752398403104.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 12:24:23] [/MySQL/products_excel/kent.php?dosya=output.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 12:28:26] [/MySQL/products_excel/parliament.php?dosya=output+%281%29.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 12:31:18] [/MySQL/products_excel/winston.php?dosya=output+%282%29.xlsx] İlk veritabanına bağlanıldı.
+[13-07-2025 13:58:58] [/MySQL/products_excel/kent.php?dosya=output+%283%29.xlsx] İlk veritabanına bağlanıldı.
